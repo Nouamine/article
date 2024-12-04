@@ -1,0 +1,239 @@
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(calc(30% ), 30%)); 
+    grid-gap: 20px;
+  }
+  
+  .article {
+    box-sizing: border-box;
+  }
+
+.grid-item {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    min-height: 300px;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    display: block;
+    margin: 10px auto;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+
+.action-buttons {
+    display: flex;
+    gap: 10px; 
+    margin-top: 10px;
+}
+
+.action-buttons button {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none; 
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease; 
+}
+
+.action-buttons button:hover {
+    transform: translateY(-2px); 
+}
+
+
+.add-button {
+    background-color: #5cb294; 
+    color: white;
+}
+
+.add-button:hover {
+    background-color: #ad8585;
+}
+
+.edit-button {
+    background-color: #2196F3; 
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #1976d2;
+}
+
+.delete-button {
+    background-color: #f44336; 
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f;
+}
+
+
+
+button[type="button"] { 
+    background-color: #2196F3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="button"]:hover {
+    background-color: #1976d2;
+}
+.loading-indicator {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+
+  .error-message {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .show {
+    display: block; 
+  }
+  
+  .edit-button:hover {
+    background-color: #1976d2;
+  }
+
+  .modal {
+  /* Hidden by default */
+  display: none;
+  /* Positionnement fixe sur l'écran */
+  position: fixed; 
+  /* Empêche les éléments derrière la modal d'être interactifs */
+  z-index: 1; /* Assurez-vous que ce z-index est supérieur à celui des autres éléments */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* Défilement possible à l'intérieur de la modal si son contenu dépasse la hauteur de l'écran */
+  overflow: auto; 
+  /* Fond semi-transparent pour assombrir l'arrière-plan */
+  background-color: rgba(0, 0, 0, 0.4); /* rgba permet la transparence */
+}
+
+.modal.show { /* Classe ajoutée dynamiquement pour afficher la modal */
+  display: block; 
+}
+
+.modal-content {
+  /* Centrage de la modal sur l'écran */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Translate pour centrer précisément */
+  background-color: #fefefe; /* Couleur de fond de la modal */
+  margin: 0; /* Supprime les marges par défaut */
+  padding: 20px;
+  border: 1px solid #888; /* Bordure de la modal */
+  border-radius: 5px; /* Coins arrondis */
+  width: 80%; /* Largeur adaptative en pourcentage */
+  max-width: 500px; /* Largeur maximale pour éviter les modals trop larges */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Ombre pour un effet 3D */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Styles pour le formulaire (vous pouvez les personnaliser davantage) */
+.modal-content label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box; /* Inclut le padding dans la largeur totale */
+}
+
+.modal-content button[type="submit"] {
+ 
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+.add-button {
+  background-color: #4CAF50; 
+  color: white;
+}
+
+.add-button:hover {
+  background-color: #0ea548;
+}
+
+.edit-button {
+  background-color: #2196F3; /* Bleu */
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #1976D2;
+}
+

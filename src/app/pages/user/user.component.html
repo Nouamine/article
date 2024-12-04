@@ -1,0 +1,67 @@
+
+
+<h1>Articles</h1>
+
+<div *ngIf="isAdmin" class="action-buttons">
+  <button class="add-button" (click)="onAddArticle()">Ajouter un article</button>
+</div>
+
+<div class="modal" [class.show]="showModal">
+  <div class="modal-content">
+    <span class="close" (click)="onCloseModal()">&times;</span>
+    <h2>Ajouter un article</h2>
+    <form (ngSubmit)="onArticleAdded()">
+      <label for="title">Titre:</label><br>
+      <input type="text" id="title" [(ngModel)]="newArticle.title" required><br>
+
+      <label for="body">Corps:</label><br>
+      <textarea id="body" [(ngModel)]="newArticle.body" required></textarea><br>
+
+      <label for="imageUrl">URL de l'image:</label><br>
+      <input type="text" id="imageUrl" [(ngModel)]="newArticle.imageUrl"><br>
+
+      <button class="add-button" type="submit">Ajouter</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal" [class.show]="showEditModal">
+  <div class="modal-content">
+    <span class="close" (click)="showEditModal = false">&times;</span>
+    <h2>Modifier l'article</h2>
+    <form *ngIf="articleToEdit" (ngSubmit)="onArticleUpdated()">
+      <label for="editTitle">Titre:</label><br>
+      <input type="text" id="editTitle" [(ngModel)]="articleToEdit.title" required><br>
+
+      <label for="editBody">Corps:</label><br>
+      <textarea id="editBody" [(ngModel)]="articleToEdit.body" required></textarea><br>
+
+      <label for="editImageUrl">URL de l'image:</label><br>
+      <input type="text" id="editImageUrl" [(ngModel)]="articleToEdit.imageUrl"><br>
+
+      <button class="edit-button" type="submit">Modifier</button>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="isLoading" class="loading-indicator">Chargement...</div>
+<div *ngIf="error" class="error-message">{{ error }}</div>
+
+<div *ngIf="!isLoading && !error" class="grid-container">
+  <div *ngFor="let article of paginatedArticles" class="grid-item">
+    <img [src]="article.imageUrl" alt="{{ article.title }}">
+    <h2>{{ article.title }}</h2>
+    <p>{{ article.date }}</p>
+    <p>{{ article.body }}</p>
+    <div *ngIf="isAdmin" class="action-buttons">
+      <button class="edit-button" (click)="onEditArticle(article)">Modifier</button>
+      <button class="delete-button" (click)="confirmDelete(article.id)">Supprimer</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="totalPages > 1 && !isLoading && !error" class="pagination">
+  <button (click)="onPageChange(i + 1)" *ngFor="let i of getRange(totalPages)">
+    {{ i + 1 }}
+  </button>
+</div>
